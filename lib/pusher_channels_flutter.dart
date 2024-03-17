@@ -140,13 +140,6 @@ class PusherChannelsFlutter {
           authParams.isNotEmpty &&
           authParams.containsKey("headers")) {
         Map<String, String> headers = Map.of(authParams["headers"] ?? {});
-
-        assert(
-            !(headers.containsKey("Content-Type") ||
-                headers.containsKey("content-type") ||
-                (headers.containsValue("application/json") ||
-                    headers.containsValue("Application/json"))),
-            "::: Headers should not contain Content-Type key or Value as application/json :::");
       }
     }
     await methodChannel.invokeMethod('init', {
